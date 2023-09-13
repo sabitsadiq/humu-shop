@@ -3,10 +3,10 @@ import Image from "next/image";
 import { footerLinks } from "@/constant/data";
 import { LuFacebook, LuInstagram, LuTwitter } from "react-icons/lu";
 import { PiAppleLogoLight } from "react-icons/pi";
-import { footerProps } from "@/types";
+// import { footerProps } from "@/types";
 import Link from "next/link";
 
-const Footer = ({ links }: footerProps) => {
+const Footer = () => {
   return (
     <footer className="w-full mt-14 py-14 px-4 flex justify-between lg:px-32 bg-[#0D1A4A] flex-1">
       <div className="flex flex-col-reverse lg:flex-row flex-1 justify-between items-start text-white">

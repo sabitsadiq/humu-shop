@@ -19,6 +19,3 @@ export interface ourShopCategoriesProps {
   img: string;
   desc: string;
 }
-export interface footerProps {
-  links: string;
-}
