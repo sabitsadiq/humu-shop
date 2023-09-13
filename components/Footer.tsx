@@ -8,8 +8,8 @@ import Link from "next/link";
 
 const Footer = ({ links }: footerProps) => {
   return (
-    <footer className="w-full mt-14 py-14 px-4 flex justify-center lg:px-32 bg-[#0D1A4A] flex-1">
-      <div className="flex flex-col-reverse lg:flex-row justify-between items-start text-white">
+    <footer className="w-full mt-14 py-14 px-4 flex justify-between lg:px-32 bg-[#0D1A4A] flex-1">
+      <div className="flex flex-col-reverse lg:flex-row flex-1 justify-between items-start text-white">
         <div className="mb-4">
           <Image
             src="/images/Humushop-logo.png"

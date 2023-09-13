@@ -125,18 +125,16 @@ const Hero = ({
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {ourShopCategories.map((item) => (
-            <div>
-              <div key={item.id} className="relative h-44 rounded-xl">
-                <Image
-                  src={item.img}
-                  fill
-                  alt="ourShopCategories"
-                  className="rounded-3xl"
-                />
-                <span className="absolute bottom-6 px-3 rounded-3xl py-2 left-3 bg-[#FFFFFF] bg-opacity-20 xl:text-2xl font-bold text-[#FFFFFF]">
-                  {item.desc}
-                </span>
-              </div>
+            <div key={item.id} className="relative h-44 rounded-xl">
+              <Image
+                src={item.img}
+                fill
+                alt="ourShopCategories"
+                className="rounded-3xl"
+              />
+              <span className="absolute bottom-6 px-3 rounded-3xl py-2 left-3 bg-[#FFFFFF] bg-opacity-20 xl:text-2xl font-bold text-[#FFFFFF]">
+                {item.desc}
+              </span>
             </div>
           ))}
         </div>
