@@ -23,7 +23,7 @@ const Hero = ({
         <div className="hidden lg:flex">
           <Image
             // className="w-1/2 md:w-full"
-            src="/images/leftSideCurve.png"
+            src="/images/left-curve.png"
             width={120}
             height={120}
             alt="side curve"
@@ -65,7 +65,7 @@ const Hero = ({
         <div className="flex flex-col lg:flex-row justify-between flex-1 lg:items-center">
           <div className="flex gap-2 items-center">
             <Image
-              src="/images/filter.png"
+              src="/images/filter-icon.png"
               width={20}
               height={20}
               alt="filter"

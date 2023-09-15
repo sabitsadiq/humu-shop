@@ -10,7 +10,7 @@ const Navbar = () => {
       <nav className="max-w-[1440px] mx-auto flex justify-between items-center flex-1 lg:px-32">
         <div>
           <Image
-            src="/images/logo.png"
+            src="/images/brand-logo.png"
             alt="logo"
             width={80}
             height={18}
