@@ -3,7 +3,7 @@ import Image from "next/image";
 import { footerLinks } from "@/constant/data";
 import { LuFacebook, LuInstagram, LuTwitter } from "react-icons/lu";
 import { PiAppleLogoLight } from "react-icons/pi";
-// import { footerProps } from "@/types";
+import { BsGooglePlay } from "react-icons/bs";
 import Link from "next/link";
 
 const Footer = () => {
@@ -60,13 +60,13 @@ const Footer = () => {
               </div>
             </button>
             <button className="rounded-lg py-2 border px-6 flex gap-3 justify-center items-center">
-              <PiAppleLogoLight size={35} />
+              <BsGooglePlay size={20} />
               <div className="flex flex-col ">
                 <span className="text-sm font-normal leading-3 text-[#BBB6C0]">
                   Download it on
                 </span>
                 <span className="text-base font-semibold leading-5">
-                  Google store
+                  Apple store
                 </span>
               </div>
             </button>

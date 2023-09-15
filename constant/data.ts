@@ -10,7 +10,7 @@ export const homeData = [
   },
   {
     id: 1,
-    img: "/images/blender.jpg",
+    img: "/images/fridge.jpg",
     title: "Fenty beauty lip care",
     desc: "Description should be this long",
     formerCost: "₦ 16,000",
@@ -19,7 +19,7 @@ export const homeData = [
   },
   {
     id: 2,
-    img: "/images/blender.jpg",
+    img: "/images/washing-machine.jpg",
     title: "Fenty beauty lip care",
     desc: "Description should be this long",
     formerCost: "₦ 16,000",
@@ -28,7 +28,7 @@ export const homeData = [
   },
   {
     id: 3,
-    img: "/images/blender.jpg",
+    img: "/images/bed.jpg",
     title: "Fenty beauty lip care",
     desc: "Description should be this long",
     formerCost: "₦ 16,000",
@@ -37,7 +37,7 @@ export const homeData = [
   },
   {
     id: 4,
-    img: "/images/blender.jpg",
+    img: "/images/computer-accessories.jpg",
     title: "Fenty beauty lip care",
     desc: "Description should be this long",
     formerCost: "₦ 16,000",
@@ -46,7 +46,7 @@ export const homeData = [
   },
   {
     id: 5,
-    img: "/images/blender.jpg",
+    img: "/images/shoes.jpg",
     title: "Fenty beauty lip care",
     desc: "Description should be this long",
     formerCost: "₦ 16,000",
@@ -55,7 +55,7 @@ export const homeData = [
   },
   {
     id: 6,
-    img: "/images/blender.jpg",
+    img: "/images/fan.jpg",
     title: "Fenty beauty lip care",
     desc: "Description should be this long",
     formerCost: "₦ 16,000",
@@ -64,7 +64,7 @@ export const homeData = [
   },
   {
     id: 7,
-    img: "/images/blender.jpg",
+    img: "/images/clothes-two.jpg",
     title: "Fenty beauty lip care",
     desc: "Description should be this long",
     formerCost: "₦ 16,000",
@@ -73,7 +73,7 @@ export const homeData = [
   },
   {
     id: 8,
-    img: "/images/blender.jpg",
+    img: "/images/computer-accessories-two.jpg",
     title: "Fenty beauty lip care",
     desc: "Description should be this long",
     formerCost: "₦ 16,000",
@@ -82,7 +82,7 @@ export const homeData = [
   },
   {
     id: 9,
-    img: "/images/blender.jpg",
+    img: "/images/sofa-chair.jpg",
     title: "Fenty beauty lip care",
     desc: "Description should be this long",
     formerCost: "₦ 16,000",
@@ -91,7 +91,7 @@ export const homeData = [
   },
   {
     id: 10,
-    img: "/images/blender.jpg",
+    img: "/images/plates.jpg",
     title: "Fenty beauty lip care",
     desc: "Description should be this long",
     formerCost: "₦ 16,000",
@@ -100,7 +100,7 @@ export const homeData = [
   },
   {
     id: 11,
-    img: "/images/blender.jpg",
+    img: "/images/sneaker.jpg",
     title: "Fenty beauty lip care",
     desc: "Description should be this long",
     formerCost: "₦ 16,000",
@@ -109,6 +109,44 @@ export const homeData = [
   },
 ];
 
+export const dailyDeals = [
+  {
+    id: 0,
+    img: "/images/computer-accessories.jpg",
+    title: "Fenty beauty lip care",
+    desc: "Description should be this long",
+    formerCost: "₦ 16,000",
+    currentCost: "₦ 10,000",
+    btnText: "Add to cart",
+  },
+  {
+    id: 1,
+    img: "/images/bed.jpg",
+    title: "Fenty beauty lip care",
+    desc: "Description should be this long",
+    formerCost: "₦ 16,000",
+    currentCost: "₦ 10,000",
+    btnText: "Add to cart",
+  },
+  {
+    id: 2,
+    img: "/images/clothes-two.jpg",
+    title: "Fenty beauty lip care",
+    desc: "Description should be this long",
+    formerCost: "₦ 16,000",
+    currentCost: "₦ 10,000",
+    btnText: "Add to cart",
+  },
+  {
+    id: 3,
+    img: "/images/fridge.jpg",
+    title: "Fenty beauty lip care",
+    desc: "Description should be this long",
+    formerCost: "₦ 16,000",
+    currentCost: "₦ 10,000",
+    btnText: "Add to cart",
+  },
+];
 export const categoriesData = [
   {
     id: 0,
@@ -175,17 +213,17 @@ export const categoriesData = [
 export const ourShopCategories = [
   {
     id: 0,
-    img: "/images/blender.jpg",
+    img: "/images/fan.jpg",
     desc: "Home appliances",
   },
   {
     id: 1,
-    img: "/images/blender.jpg",
+    img: "/images/computer-accessories-two.jpg",
     desc: "Computer accessories",
   },
   {
     id: 2,
-    img: "/images/blender.jpg",
+    img: "/images/clothes-two.jpg",
     desc: "Clothes",
   },
 ];

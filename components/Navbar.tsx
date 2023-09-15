@@ -48,10 +48,12 @@ const Navbar = () => {
               containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
             />
           </Link>
-          <CustomButton
-            title="Daily deals"
-            containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
-          />
+          <Link href="/dailyDeals">
+            <CustomButton
+              title="Daily deals"
+              containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
+            />
+          </Link>
           <Link href="/contactUs">
             <CustomButton
               title="Contact us"

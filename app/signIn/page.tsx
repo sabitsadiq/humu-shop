@@ -40,7 +40,7 @@ const Page = () => {
               </span>
             </Link>
           </form>
-          <Link href="/userDashboard" className="flex justify-center mt-4">
+          <Link href="/dashboard" className="flex justify-center mt-4">
             <CustomButton
               title="Sign In"
               containerStyle="bg-[#0D1A4A] rounded-full text-white p-3 w-2/5 flex justify-center"
