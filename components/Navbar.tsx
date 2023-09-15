@@ -32,10 +32,12 @@ const Navbar = () => {
       </nav>
       <nav className="max-w-[1440px] border-y shadow-lg mt-3 mx-auto py-2 flex justify-between items-center flex-1 lg:px-32">
         <div className="w-3/5 flex justify-between  items-center ">
-          <CustomButton
-            title="Home"
-            containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
-          />
+          <Link href="/">
+            <CustomButton
+              title="Home"
+              containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
+            />
+          </Link>
           <CustomButton
             title="Products"
             containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
@@ -48,10 +50,12 @@ const Navbar = () => {
             title="Daily deals"
             containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
           />
-          <CustomButton
-            title="Contact us"
-            containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
-          />
+          <Link href="/contactUs">
+            <CustomButton
+              title="Contact us"
+              containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
+            />
+          </Link>
         </div>
         <div className="flex justify-between items-center">
           <div className="flex flex-col items-center justify-center cursor-pointer">

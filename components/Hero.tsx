@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 import { CustomButton } from "./index";
 import { allCategoriesProps } from "../types/index";
 import { PiCaretDownLight } from "react-icons/pi";
@@ -39,11 +40,13 @@ const Hero = ({
               bibendum. Duis ac lobortis nam ut eget id faucibus est tempor. Est
               nam ac nulla nisi.
             </p>
-            <CustomButton
-              title="Shop now"
-              //   handleClick={handleBuy}
-              containerStyle="bg-[#0D1A4A] text-white md:w-1/2 xl:w-1/3 px-8 py-3 text-lg font-semibold leading-7 md:rounded-3xl rounded-xl"
-            />
+            <Link href="/signUp">
+              <CustomButton
+                title="Shop now"
+                //   handleClick={handleBuy}
+                containerStyle="bg-[#0D1A4A] text-white md:w-1/2 xl:w-1/3 px-8 py-3 text-lg font-semibold leading-7 md:rounded-3xl rounded-xl"
+              />
+            </Link>
           </div>
           <div className="relative md:w-1/2 h-48 md:h-full ">
             <Image src="/images/cooker.png" fill alt="cooker" />
