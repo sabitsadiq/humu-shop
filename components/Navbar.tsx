@@ -42,10 +42,12 @@ const Navbar = () => {
             title="Products"
             containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
           />
-          <CustomButton
-            title="Categories"
-            containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
-          />
+          <Link href="/categories">
+            <CustomButton
+              title="Categories"
+              containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
+            />
+          </Link>
           <CustomButton
             title="Daily deals"
             containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
