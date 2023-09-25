@@ -15,7 +15,7 @@ const Page = () => {
         {homeData.map((item) => {
           console.log(homeData);
           return (
-            <div>
+            <div key={item.id}>
               <div className="relative h-56">
                 <input type="radio" />
                 <Image
