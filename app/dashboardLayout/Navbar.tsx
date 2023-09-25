@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { CustomButton } from ".";
+import { CustomButton } from "@/components";
 import { BsPerson, BsHandbag, BsSearch } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 const Navbar = () => {
   return (
-    <header className="flex flex-1 flex-col w-full mx-auto z-20 fixed pt-3 bg-white">
+    <header className="flex flex-1 flex-col w-full z-20 fixed pt-3 bg-white">
       <nav className="max- flex justify-between items-center flex-1 lg:px-32">
         <div>
           <Image

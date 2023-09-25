@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="w-full mt-14 py-14 px-4 flex justify-between lg:px-32 bg-[#0D1A4A] flex-1">
+    <footer className="px-4 lg:px-32 py-14 flex justify-between  bg-[#0D1A4A] flex-1">
       <div className="flex flex-col-reverse lg:flex-row flex-1 justify-between items-start text-white">
         <div className="mb-4">
           <Image
