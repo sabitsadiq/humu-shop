@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ handleChange, value, title, name }: any) => {
+const Input = ({ handleChange, value, title, name, category }: any) => {
   return (
     <>
       <div
@@ -14,7 +14,9 @@ const Input = ({ handleChange, value, title, name }: any) => {
           value={value}
           name={name}
         />
-        <p className="font-medium text-sm leading-6 text-[#1B0C2E]">{title}</p>
+        <p className="font-medium text-sm leading-6 text-[#1B0C2E]">
+          {category}
+        </p>
       </div>
     </>
   );
