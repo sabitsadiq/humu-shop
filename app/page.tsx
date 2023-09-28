@@ -48,7 +48,6 @@ export default function Home() {
       // cartItem={cartItem}
       // setCartItem={setCartItem}
       />
-      <Cart />
     </main>
   );
 }

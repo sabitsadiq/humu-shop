@@ -6,7 +6,7 @@ export interface customButtonProps {
   //   handleClick(): void;
 }
 export interface allCategoriesProps {
-  id?: number;
+  id?: any;
   img?: string | any;
   title?: string | any;
   desc?: string;

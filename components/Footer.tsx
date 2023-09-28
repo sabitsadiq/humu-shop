@@ -8,46 +8,13 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="px-4 lg:px-32 py-14 flex justify-between  bg-[#0D1A4A] flex-1">
-      <div className="flex flex-col-reverse lg:flex-row flex-1 justify-between items-start text-white">
-        <div className="mb-4">
-          <Image
-            src="/images/Humushop-logo.png"
-            alt="humushop-logo"
-            width={80}
-            height={18}
-            className="object-contain"
-          />
-          <h1 className="my-2">Follow us on:</h1>
-          <div className="flex flex-1 justify-between items-center cursor-pointer">
-            <LuFacebook />
-            <LuInstagram />
-            <LuTwitter />
-          </div>
-        </div>
-        <div className="flex flex-col w-1/2 lg:flex-row justify-between items-start">
-          {footerLinks.map((link) => (
-            <div key={link.title}>
-              <h3 className="font-medium text-base leading-5 mb-4">
-                {link.title}
-              </h3>
-              {link.links.map((item: any) => (
-                <Link
-                  key={item.title}
-                  href={item.url}
-                  className="flex flex-col text-base font-normal leading-5"
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-          ))}
-        </div>
-        <div className="block">
+    <footer className="px-4 xl:px-32 py-14 flex justify-between  bg-[#0D1A4A] flex-1">
+      <div className="flex flex-col md:flex-row-reverse gap-4 md:grid-cols-3  w-full flex-1 justify-between items-start text-white">
+        <div className="block w-1/3">
           <h3 className="text-base font-medium leading-5 mb-4">
             Download our mobile app
           </h3>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 justify-between ">
             <button className="rounded-lg py-2 border px-6 flex gap-3 justify-center items-center">
               <PiAppleLogoLight size={35} />
               <div className="flex flex-col ">
@@ -70,6 +37,40 @@ const Footer = () => {
                 </span>
               </div>
             </button>
+          </div>
+        </div>
+        <div className="flex flex-col gap-4 mt-4 flex-1 md:flex-row justify-between items-start">
+          {footerLinks.map((link) => (
+            <div key={link.title}>
+              <h3 className="font-semibold text-base leading-5">
+                {link.title}
+              </h3>
+              {link.links.map((item: any) => (
+                <Link
+                  key={item.title}
+                  href={item.url}
+                  className="flex flex-col text-base font-normal leading-5"
+                >
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <div className="mb-4">
+          <Image
+            src="/images/Humushop-logo.png"
+            alt="humushop-logo"
+            width={80}
+            height={18}
+            className="object-contain"
+          />
+          <h1 className="my-2">Follow us on:</h1>
+          <div className="flex flex-1 justify-between items-center cursor-pointer">
+            <LuFacebook />
+            <LuInstagram />
+            <LuTwitter />
           </div>
         </div>
       </div>

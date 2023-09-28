@@ -6,8 +6,8 @@ import { BsPerson, BsHandbag, BsSearch } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 const Navbar = () => {
   return (
-    <header className="flex flex-1 flex-col w-full z-20 fixed pt-3 bg-white">
-      <nav className="max- flex justify-between items-center flex-1 lg:px-32">
+    <header className="flex flex-1 flex-col z-20 fixed pt-3 bg-white max-w-[1440px] mx-auto w-full">
+      <nav className="max- flex justify-between px-4 items-center w-full xl:px-32">
         <div>
           <Image
             src="/images/brand-logo.png"
@@ -30,34 +30,34 @@ const Navbar = () => {
           <span className="font-medium leading-5 text-base">Call</span>
         </div>
       </nav>
-      <nav className="w-full border-y shadow-lg mt-3 mx-auto py-2 flex justify-between items-center flex-1 lg:px-32">
-        <div className="w-3/5 flex justify-between  items-center ">
+      <nav className="w-full border-y shadow-lg mt-3 px-4 lg:mx-auto py-2 flex justify-between items-center flex-1 xl:px-32">
+        <div className="w-3/5 flex justify-between  items-center text- ">
           <Link href="/">
             <CustomButton
               title="Home"
-              containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
+              containerStyle="rounded-3xl border px-2 lg:px-5 py-2 hover:bg-[#0D1A4A] text-sm lg:text-base font-medium leading-5 hover:text-white"
             />
           </Link>
           <CustomButton
             title="Products"
-            containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
+            containerStyle="rounded-3xl border px-2 lg:px-5 py-2 hover:bg-[#0D1A4A] text-sm lg:text-base font-medium leading-5 hover:text-white"
           />
           <Link href="/categories">
             <CustomButton
               title="Categories"
-              containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
+              containerStyle="rounded-3xl border px-2 lg:px-5 py-2 hover:bg-[#0D1A4A] text-sm lg:text-base font-medium leading-5 hover:text-white"
             />
           </Link>
           <Link href="/dailyDeals">
             <CustomButton
               title="Daily deals"
-              containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
+              containerStyle="rounded-3xl border px-2 lg:px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
             />
           </Link>
           <Link href="/contactUs">
             <CustomButton
               title="Contact us"
-              containerStyle="rounded-3xl border px-5 py-2 hover:bg-[#0D1A4A] text-base font-medium leading-5 hover:text-white"
+              containerStyle="rounded-3xl border px-2 lg:px-5 py-2 hover:bg-[#0D1A4A] text-sm lg:text-base font-medium leading-5 hover:text-white"
             />
           </Link>
         </div>
@@ -65,16 +65,22 @@ const Navbar = () => {
           <Link href="/cart">
             <div className="flex flex-col items-center justify-center cursor-pointer">
               <BsHandbag />
-              <h4 className="font-medium text-base leading-5">Cart</h4>
+              <h4 className="font-medium text-sm lg:text-base leading-5">
+                Cart
+              </h4>
             </div>
           </Link>
           <div className="flex flex-col items-center cursor-pointer justify-center mx-4">
             <AiOutlineHeart />
-            <h4 className="font-medium text-base leading-5">favourite</h4>
+            <h4 className="font-medium text-sm lg:text-base leading-5">
+              favourite
+            </h4>
           </div>
           <div className="flex flex-col items-center cursor-pointer justify-center">
             <BsPerson />
-            <h4 className="font-medium text-base leading-5">Profile</h4>
+            <h4 className="font-medium text-sm lg:text-base leading-5">
+              Profile
+            </h4>
           </div>
         </div>
       </nav>

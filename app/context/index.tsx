@@ -21,7 +21,10 @@ interface contextProps {
   itemId?: string | null;
   openFilter: boolean;
   setOpenFilter: any;
+  cart: allCategoriesProps[];
+  homeData: any;
   result: allCategoriesProps[];
+  handleAddToCart: (id: allCategoriesProps) => void;
 }
 // let filteredProducts = homeData;
 
@@ -44,11 +47,15 @@ const appDefaultValue: contextProps = {
   setOpenFilter: true || false,
   result: [],
   itemId: null,
+  cart: [],
+  handleAddToCart: () => {},
+  homeData: [],
 };
 export const GlobalContext = createContext<contextProps>(appDefaultValue);
 
 export const GlobalState = ({ children }: { children: ReactNode }) => {
   const [cartItem, setCartItem] = useState<Record<string, number>>(getCart());
+  const [cart, setCart] = useState<any>([]);
 
   const [openFilter, setOpenFilter] = useState<boolean>(false);
   const [selectedCategories, setSelectedCategories] = useState<any>(null);
@@ -80,6 +87,21 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
 
   const result = FilteredData(homeData, selectedCategories);
 
+  const handleAddToCart = (result: any) => {
+    const productExit = cart.find((item: any) => item.id === result.id);
+    if (productExit) {
+      setCart(
+        cart.map((item: any) =>
+          item.id === result.id
+            ? { ...productExit, quantity: productExit.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      setCart([...cart, { ...result, quantity: 1 }]);
+    }
+  };
+
   // cart logic
   const addToCart = (itemId: string) => {
     setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
@@ -87,9 +109,9 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
   const removeFromCart = (itemId: any) => {
     setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
-  console.log(cartItem);
+  // console.log(cartItem);
   // filtering logic
-
+  // console.log(handleAddToCart);
   const value = {
     removeFromCart,
     cartItem,
@@ -101,7 +123,9 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
     openFilter,
     FilteredData,
     setOpenFilter,
-    // itemId,
+    cart,
+    handleAddToCart,
+    homeData,
   };
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>

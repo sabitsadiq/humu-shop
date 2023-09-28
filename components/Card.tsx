@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+// import { homeData } from "@/constant/data";
 import { allCategoriesProps } from "@/types";
 import { useGlobalContext } from "@/app/context";
 const Card = ({
@@ -12,7 +13,8 @@ const Card = ({
   formerCost,
   btnText,
 }: allCategoriesProps) => {
-  const { addToCart } = useGlobalContext();
+  const { handleAddToCart, homeData, result } = useGlobalContext();
+  // console.log("Card component rendered for item with ID:", id);
 
   return (
     <div key={id} className="rounded-3xl bg-[#A8A8A8]/10">
@@ -35,7 +37,7 @@ const Card = ({
           </div>
           <button
             className="font-normal text-xs leading-3 border hover:bg-[#0D1A4A] hover:text-white border-[#000]/50 rounded-3xl px-2 py-1"
-            onClick={() => addToCart(id)}
+            onClick={() => handleAddToCart(homeData.id)}
           >
             {btnText}
           </button>

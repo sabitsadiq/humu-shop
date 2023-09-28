@@ -3,16 +3,18 @@ import { homeData } from "@/constant/data";
 import React from "react";
 import { useGlobalContext } from "../context";
 import Image from "next/image";
+import Cart from "@/components/Cart";
 
 const Page = () => {
-  const { cartItem, addToCart, itemId } = useGlobalContext();
+  // const { cartItem, addToCart, itemId } = useGlobalContext();
 
   return (
     <div className="px-6 lg:px-32 pt-40">
       <div className="overflow-x-auto">
+        <Cart />
         {/* console.log (addToCart(itemId)) */}
         {/* {addToCart(itemId) === 0 && <div>no items</div>} */}
-        {homeData.map((item) => {
+        {/* {homeData.map((item) => {
           console.log(homeData);
           return (
             <div key={item.id}>
@@ -41,7 +43,7 @@ const Page = () => {
               <div>Buy</div>
             </div>
           );
-        })}
+        })} */}
       </div>
 
       {/* <div key={item.id} className="rounded-3xl bg-[#A8A8A8]/10">
