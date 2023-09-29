@@ -1,10 +1,13 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CustomButton } from ".";
 import { BsPerson, BsHandbag, BsSearch } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
+import { useGlobalContext } from "@/app/context";
 const Navbar = () => {
+  const { cart } = useGlobalContext();
   return (
     <header className="flex flex-1 flex-col w-full mx-auto z-20 fixed pt-3 bg-white">
       <nav className="max- flex justify-between items-center flex-1 lg:px-32">
@@ -63,7 +66,10 @@ const Navbar = () => {
         </div>
         <div className="flex justify-between items-center">
           <Link href="/cart">
-            <div className="flex flex-col items-center justify-center cursor-pointer">
+            <div className="relative flex flex-col items-center justify-center cursor-pointer">
+              <span className="absolute -top-3 text-[#1B0C2E] font-bold text-base right-1">
+                {cart.length === 0 ? 0 : cart.length}
+              </span>
               <BsHandbag />
               <h4 className="font-medium text-base leading-5">Cart</h4>
             </div>

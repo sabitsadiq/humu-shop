@@ -22,7 +22,7 @@ interface contextProps {
   openFilter: boolean;
   setOpenFilter: any;
   cart: allCategoriesProps[];
-  homeData: any;
+  homeData: allCategoriesProps[];
   result: allCategoriesProps[];
   handleAddToCart: (id: allCategoriesProps) => void;
 }
@@ -87,18 +87,18 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
 
   const result = FilteredData(homeData, selectedCategories);
 
-  const handleAddToCart = (result: any) => {
-    const productExit = cart.find((item: any) => item.id === result.id);
+  const handleAddToCart = (homeData: allCategoriesProps) => {
+    const productExit = cart.find((item: any) => item.id === homeData.id);
     if (productExit) {
       setCart(
         cart.map((item: any) =>
-          item.id === result.id
+          item.id === homeData.id
             ? { ...productExit, quantity: productExit.quantity + 1 }
             : item
         )
       );
     } else {
-      setCart([...cart, { ...result, quantity: 1 }]);
+      setCart([...cart, { ...homeData, quantity: 1 }]);
     }
   };
 

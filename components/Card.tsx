@@ -13,7 +13,7 @@ const Card = ({
   formerCost,
   btnText,
 }: allCategoriesProps) => {
-  const { handleAddToCart, homeData, result } = useGlobalContext();
+  const { handleAddToCart, homeData } = useGlobalContext();
   // console.log("Card component rendered for item with ID:", id);
 
   return (
@@ -37,7 +37,17 @@ const Card = ({
           </div>
           <button
             className="font-normal text-xs leading-3 border hover:bg-[#0D1A4A] hover:text-white border-[#000]/50 rounded-3xl px-2 py-1"
-            onClick={() => handleAddToCart(homeData.id)}
+            onClick={() =>
+              handleAddToCart({
+                id,
+                img,
+                desc,
+                title,
+                currentCost,
+                formerCost,
+                btnText,
+              })
+            }
           >
             {btnText}
           </button>

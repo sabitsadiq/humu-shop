@@ -4,10 +4,10 @@ import Layout from "../dashboardLayout/Layout";
 const Page = () => {
   return (
     <Layout>
-      <div className="w-full h-full lg:mx-4 md:p-8 rounded-md bg-[#F9F9F9]">
+      <div className="w-full h-full lg:mx-4 px-2 md:p-8 rounded-md bg-[#F9F9F9]">
         <h1 className="font-semibold text-3xl leading-10">My account</h1>
-        <div className="grid md:grid-cols-2 gap-6 md:gap-4 mt-4">
-          <div className="rounded-md bg-white md:px-5 md:py-3">
+        <div className="grid md:grid-cols-2 gap-6 mb-4 md:mb-0  md:gap-4 mt-4">
+          <div className="rounded-md bg-white p-2 md:px-5 md:py-3">
             <h1 className="font-medium text-xl leading-5 mb-4">
               Account details
             </h1>
@@ -18,7 +18,7 @@ const Page = () => {
               Tolanichidinma376@gmail.com
             </p>
           </div>
-          <div className="rounded-md bg-white md:px-5 md:py-3">
+          <div className="rounded-md bg-white p-2 md:px-5 md:py-3">
             <div className=" flex justify-between items-center flex-1 mb-4">
               <h1 className="font-medium text-xl leading-5">Address book</h1>
               <TbEdit />
@@ -33,7 +33,7 @@ const Page = () => {
               <br /> +2348134905786
             </p>
           </div>
-          <div className="rounded-md bg-white md:px-5 md:py-3">
+          <div className="rounded-md bg-white p-2 md:px-5 md:py-3">
             <h1 className="font-medium text-xl leading-5 mb-4">
               Newsletter preferences
             </h1>

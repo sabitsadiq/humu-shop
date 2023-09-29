@@ -32,10 +32,10 @@ const oderedItems = [
 const Page = () => {
   return (
     <Layout>
-      <div className="flex flex-col  p-5  w-full h-full mx-4  rounded-md bg-[#F9F9F9]">
+      <div className="flex flex-col  px-1 md:p-5  w-full h-full md:mx-4  rounded-md bg-[#F9F9F9]">
         <h1 className="font-semibold text-3xl leading-10">My Order</h1>
-        <div className="flex mr-10 mt-5 justify-between">
-          <div className="flex gap-8  items-center">
+        <div className="flex md:mr-4 xl:mr-10 mt-5 justify-between">
+          <div className="flex flex-1 md:gap-8 justify-between items-center">
             <div className="flex flex-col gap-1">
               <span className="text-[#887F93] font-medium text-base leading-4">
                 Order Number
@@ -61,19 +61,19 @@ const Page = () => {
               </span>
             </div>
           </div>
-          <div className="flex gap-5 flex-1 justify-end">
-            <button className="text-[#1B0C2E] bg-[#FFFFFF] border border-[#E8E7EA] rounded-xl px-5 py-3 font-medium text-base leading-4">
+          <div className="hidden lg:flex gap-5 flex-1 justify-end">
+            <button className="text-[#1B0C2E] bg-[#FFFFFF] border border-[#E8E7EA] rounded-xl px-2 xl:px-5 py-3 font-medium text-base leading-4">
               View order
             </button>
-            <button className="text-[#1B0C2E] bg-[#FFFFFF] border border-[#E8E7EA] rounded-xl px-5 py-3 font-medium text-base leading-4">
+            <button className="text-[#1B0C2E] bg-[#FFFFFF] border border-[#E8E7EA] rounded-xl px-2 xl:px-5 py-3 font-medium text-base leading-4">
               View invoice
             </button>
           </div>
         </div>
-        <div className="mt-4 mr-10">
+        <div className="mt-4 md:mr-4 xl:mr-10">
           {oderedItems.map((item) => (
             <div className="py-5 border-t" key={item.id}>
-              <div className="flex justify-between mb-4 text-[#000000]">
+              <div className="flex gap-1 justify-between mb-4 text-[#000000]">
                 <div>
                   <Image
                     src={item.img}
@@ -82,18 +82,20 @@ const Page = () => {
                     height={150}
                   />
                 </div>
-                <div className="w-3/5">
-                  <h1 className="text-base font-semibold leading-5">
-                    {item.title}
-                  </h1>
-                  <p className="text-base font-normal leading-5 opacity-50 mt-4">
-                    {item.desc}
-                  </p>
-                </div>
-                <div>
-                  <h4 className="text-base font-semibold leading-5">
-                    {item.cost}
-                  </h4>
+                <div className="f lg:flex-col sm:p-2">
+                  <div className=" flex justify-between w-full xl:w">
+                    <h1 className="text-base font-semibold leading-5">
+                      {item.title}
+                    </h1>
+                    <h4 className="text-base font-semibold leading-5">
+                      {item.cost}
+                    </h4>
+                  </div>
+                  <div>
+                    <p className="text-base font-normal leading-5 opacity-50 mt-4">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
               </div>
               <div className="flex items-center justify-between w-full text-base font-medium leading-5">

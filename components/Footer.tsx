@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer className="px-4 xl:px-32 py-14 flex justify-between  bg-[#0D1A4A] flex-1">
       <div className="flex flex-col md:flex-row-reverse gap-4 md:grid-cols-3  w-full flex-1 justify-between items-start text-white">
-        <div className="block w-1/3">
+        <div className="block w-full md:w-1/3">
           <h3 className="text-base font-medium leading-5 mb-4">
             Download our mobile app
           </h3>
