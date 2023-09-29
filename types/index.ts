@@ -5,7 +5,7 @@ export interface customButtonProps {
   handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
 export interface allCategoriesProps {
-  id: any;
+  id?: any;
   img?: string | any;
   title?: string | any;
   desc?: string;
