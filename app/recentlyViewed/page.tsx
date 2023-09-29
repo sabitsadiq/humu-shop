@@ -93,7 +93,6 @@ const Page = () => {
               btnText,
             }: allCategoriesProps) => (
               <Card
-                key={id}
                 id={id}
                 img={img}
                 title={title}
