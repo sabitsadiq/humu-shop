@@ -50,13 +50,19 @@ const Cart = () => {
               <div className="text-[#A8A8A8] font-normal text-base leading-4">
                 {item.desc}
               </div>
-              <div className="flex gap-2 justify-center">
-                <span>-</span>
-                <span>1</span>
-                <span>+</span>
+              <div className="flex gap-2 justify-center items-start">
+                <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
+                  -
+                </span>
+                <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
+                  1
+                </span>
+                <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
+                  +
+                </span>
               </div>
-              <div className="flex justify-center text-[#000000]/80 font-base text-xl leading-7">
-                buy
+              <div className="flex justify-center text-[#000000]/80 font-base text-xl leading-7 cursor-pointer">
+                Buy
               </div>
             </div>
           ))}

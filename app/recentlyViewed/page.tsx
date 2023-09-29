@@ -94,6 +94,7 @@ const Page = () => {
             }: allCategoriesProps) => (
               <Card
                 key={id}
+                id={id}
                 img={img}
                 title={title}
                 desc={desc}
