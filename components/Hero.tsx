@@ -146,7 +146,7 @@ any) => {
                 }: allCategoriesProps) => (
                   // <Link href={`/result/${result.id}`} key={result.id}>
                   <Card
-                    key={id}
+                    // key={id}
                     id={id}
                     img={img}
                     title={title}
