@@ -6,7 +6,7 @@ import { allCategoriesProps } from "@/types";
 import Image from "next/image";
 import { BsPlus } from "react-icons/bs";
 
-const page = () => {
+const Page = () => {
   const { orderItems } = useGlobalContext();
   return (
     <MainLayout>
@@ -256,4 +256,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
