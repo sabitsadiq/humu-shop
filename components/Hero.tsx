@@ -144,7 +144,6 @@ any) => {
                   formerCost,
                   btnText,
                 }: allCategoriesProps) => (
-                  // <Link href={`/result/${result.id}`} key={result.id}>
                   <Card
                     // key={id}
                     id={id}
@@ -155,7 +154,6 @@ any) => {
                     currentCost={currentCost}
                     btnText={btnText}
                   />
-                  // </Link>
                 )
               )}
             </div>
