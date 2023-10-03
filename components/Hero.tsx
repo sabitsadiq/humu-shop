@@ -134,20 +134,30 @@ any) => {
               )}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 my-8 gap-6">
-              {result.map((result) => (
-                // <Link href={`/result/${result.id}`} key={result.id}>
-                <Card
-                  key={result.id}
-                  id={result.id}
-                  img={result.img}
-                  title={result.title}
-                  desc={result.desc}
-                  formerCost={result.formerCost}
-                  currentCost={result.currentCost}
-                  btnText={result.btnText}
-                />
-                // </Link>
-              ))}
+              {result.map(
+                ({
+                  id,
+                  img,
+                  desc,
+                  title,
+                  currentCost,
+                  formerCost,
+                  btnText,
+                }: allCategoriesProps) => (
+                  // <Link href={`/result/${result.id}`} key={result.id}>
+                  <Card
+                    key={id}
+                    id={id}
+                    img={img}
+                    title={title}
+                    desc={desc}
+                    formerCost={formerCost}
+                    currentCost={currentCost}
+                    btnText={btnText}
+                  />
+                  // </Link>
+                )
+              )}
             </div>
             <h1 className="font-bold text-xl lg:text-4xl leading-9 my-8">
               Our shop categories
