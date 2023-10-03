@@ -2,18 +2,18 @@
 import Image from "next/image";
 import React, { useState, ChangeEvent, useContext } from "react";
 import Link from "next/link";
-import { CustomButton, Navbar } from "./index";
 import { PiArrowUUpLeftBold, PiCaretDownLight } from "react-icons/pi";
-import { homeData, ourShopCategories } from "../constant/data";
-import SortDropDown from "./SortDropDown";
+import SortDropDown from "@/components/SortDropDown";
 import { useGlobalContext } from "@/app/context";
-import FilterSideBar from "./FilterSideBar";
+import FilterSideBar from "@/components/FilterSideBar";
 import Card from "@/components/Card";
 
 import { allCategoriesProps } from "@/types";
 import MainLayout from "@/app/mainLayout/Layout";
+import { CustomButton } from "@/components";
+import { ourShopCategories } from "@/constant/data";
 
-const Hero = ({}: // result,
+const Home = ({}: // result,
 // handleChange,
 // openFilter,
 // setOpenFilter,
@@ -43,7 +43,7 @@ any) => {
                 alt="side curve"
               />
             </div>
-            <div className="flex flex-col-reverse md:flex-row flex-1 px-4">
+            <div className="flex flex-col-reverse md:flex-row flex-1">
               <div className="md:w-1/2 flex flex-col align-bottom pt-3 md:pt-14 text-[#000000]">
                 <h1 className="font-extrabold 2xl:w-4/5  text-xl md:text-3xl xl:text-4xl leading-6 xl:leading-[45px]">
                   Shop home appliances and computer accessories
@@ -74,9 +74,9 @@ any) => {
               />
             </div>
           </div>
-          <div className="px-4 lg:px-32 flex flex-col my-8">
-            <div className="relative flex flex-col md:flex-row justify-between flex-1 lg:items-center">
-              <div className="flex  justify-between w-full md:w-1/5 items-center cursor-pointer">
+          <div className="lg:px-32 flex flex-col my-8">
+            <div className="relative flex flex-col lg:flex-row justify-between flex-1 lg:items-center">
+              <div className="flex  justify-between w-1/5 items-center cursor-pointer">
                 <div
                   className="flex gap-2 items-center"
                   onClick={() => setOpenFilter((prev: any) => !prev)}
@@ -97,11 +97,11 @@ any) => {
                   />
                 </span>
               </div>
-              <div className="flex items-center justify-between w-full lg:w-2/3">
-                <h1 className="font-extrabold lg:text-4xl leading-9 md:ml-4">
+              <div className="flex items-center justify-between w-full md:w-2/3">
+                <h1 className="font-extrabold lg:text-4xl leading-9">
                   All categories
                 </h1>
-                <button className="flex xl:w-1/5 border gap-2 xl:gap-0  rounded-xl px-2  justify-between items-center">
+                <button className="flex lg:w-1/5 border gap-2 lg:gap-0  rounded-xl px-2  justify-between items-center">
                   <span className="text-[#1B0C2E] font-medium text-base leading-6">
                     sort by:color
                   </span>
@@ -134,20 +134,30 @@ any) => {
               )}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 my-8 gap-6">
-              {result.map((result) => (
-                // <Link href={`/result/${result.id}`} key={result.id}>
-                <Card
-                  key={result.id}
-                  id={result.id}
-                  img={result.img}
-                  title={result.title}
-                  desc={result.desc}
-                  formerCost={result.formerCost}
-                  currentCost={result.currentCost}
-                  btnText={result.btnText}
-                />
-                // </Link>
-              ))}
+              {result.map(
+                ({
+                  img,
+                  id,
+                  title,
+                  desc,
+                  formerCost,
+                  currentCost,
+                  btnText,
+                }: allCategoriesProps) => (
+                  <Link href={``}>
+                    <Card
+                      key={id}
+                      id={id}
+                      img={img}
+                      title={title}
+                      desc={desc}
+                      formerCost={formerCost}
+                      currentCost={currentCost}
+                      btnText={btnText}
+                    />
+                  </Link>
+                )
+              )}
             </div>
             <h1 className="font-bold text-xl lg:text-4xl leading-9 my-8">
               Our shop categories
@@ -174,4 +184,4 @@ any) => {
   );
 };
 
-export default Hero;
+export default Home;

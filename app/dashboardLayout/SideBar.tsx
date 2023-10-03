@@ -44,11 +44,9 @@ const sideNavItems = [
   },
 ];
 interface props {
-  id?: string;
-  label?: string;
-  path?: string;
+  openSidebar: boolean;
 }
-const SideBar = () => {
+const SideBar = ({ openSidebar }: props) => {
   return (
     <nav className="w-full border rounded-md p-2">
       <ul className="w-full">

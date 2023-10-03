@@ -21,10 +21,12 @@ interface contextProps {
   itemId?: string | null;
   openFilter: boolean;
   setOpenFilter: any;
-  cart: allCategoriesProps[];
+  carts: allCategoriesProps[];
+  orderItems: allCategoriesProps[];
   homeData: allCategoriesProps[];
   result: allCategoriesProps[];
   handleAddToCart: (id: allCategoriesProps) => void;
+  handleOrder: (item: allCategoriesProps) => void;
 }
 // let filteredProducts = homeData;
 
@@ -47,15 +49,18 @@ const appDefaultValue: contextProps = {
   setOpenFilter: true || false,
   result: [],
   itemId: null,
-  cart: [],
+  carts: [],
+  orderItems: [],
   handleAddToCart: () => {},
   homeData: [],
+  handleOrder: () => {},
 };
 export const GlobalContext = createContext<contextProps>(appDefaultValue);
 
 export const GlobalState = ({ children }: { children: ReactNode }) => {
   const [cartItem, setCartItem] = useState<Record<string, number>>(getCart());
-  const [cart, setCart] = useState<any>([]);
+  const [carts, setCarts] = useState<any>([]);
+  const [orderItems, setOrderItems] = useState<any>([]);
 
   const [openFilter, setOpenFilter] = useState<boolean>(false);
   const [selectedCategories, setSelectedCategories] = useState<any>(null);
@@ -88,18 +93,40 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
   const result = FilteredData(homeData, selectedCategories);
 
   const handleAddToCart = (homeData: allCategoriesProps) => {
-    const productExit = cart.find((item: any) => item.id === homeData.id);
+    const productExit = carts.find((item: any) => item.id === homeData.id);
     if (productExit) {
-      setCart(
-        cart.map((item: any) =>
+      setCarts(
+        carts.map((item: any) =>
           item.id === homeData.id
             ? { ...productExit, quantity: productExit.quantity + 1 }
             : item
         )
       );
     } else {
-      setCart([...cart, { ...homeData, quantity: 1 }]);
+      setCarts([...carts, { ...homeData, quantity: 1 }]);
     }
+  };
+
+  const handleRemoveFromCart = (homeData: allCategoriesProps) => {
+    const productExit = carts.find((item: any) => item.id === homeData.id);
+    if (productExit.quantity === 1) {
+      setCarts(carts.filter((item: any) => item.id !== homeData.id));
+    } else {
+      setCarts(
+        carts.map((item: any) =>
+          item.id === homeData.id
+            ? { ...productExit, quantity: productExit.quantity + 1 }
+            : item
+        )
+      );
+    }
+  };
+
+  const handleOrder = (item: allCategoriesProps) => {
+    const updatedCart = carts.filter((cart: any) => cart !== item);
+    console.log(updatedCart);
+    setCarts(updatedCart);
+    setOrderItems([...orderItems, item]);
   };
 
   // cart logic
@@ -123,9 +150,11 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
     openFilter,
     FilteredData,
     setOpenFilter,
-    cart,
+    carts,
+    orderItems,
     handleAddToCart,
     homeData,
+    handleOrder,
   };
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>

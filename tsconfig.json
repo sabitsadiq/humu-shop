@@ -28,7 +28,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/dashboard/_app.jsx",
-    "app/dashboard/layout.jsx"
+    "app/dashboard/layout.jsx",
+    "app/result/[id]",
+    "app/result/[id]"
   ],
   "exclude": ["node_modules"]
 }

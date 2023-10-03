@@ -5,7 +5,9 @@ const Page = () => {
   return (
     <Layout>
       <div className="w-full h-full lg:mx-4 px-2 md:p-8 rounded-md bg-[#F9F9F9]">
-        <h1 className="font-semibold text-3xl leading-10">My account</h1>
+        <h1 className="hidden md:block font-semibold text-3xl leading-10">
+          My account
+        </h1>
         <div className="grid md:grid-cols-2 gap-6 mb-4 md:mb-0  md:gap-4 mt-4">
           <div className="rounded-md bg-white p-2 md:px-5 md:py-3">
             <h1 className="font-medium text-xl leading-5 mb-4">

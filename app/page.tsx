@@ -37,17 +37,7 @@ export default function Home() {
   const result = FilteredData(homeData, selectedCategories);
   return (
     <main className="">
-      <Hero
-      // filteredProducts={filteredProducts}
-      // result={result}
-      // handleChange={handleChange}
-      // openFilter={openFilter}
-      // setOpenFilter={setOpenFilter}
-      // handleClick={handleClick}
-      // handleReset={handleReset}
-      // cartItem={cartItem}
-      // setCartItem={setCartItem}
-      />
+      <Hero />
     </main>
   );
 }

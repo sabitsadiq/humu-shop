@@ -9,8 +9,8 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="px-4 xl:px-32 py-14 flex justify-between  bg-[#0D1A4A] flex-1">
-      <div className="flex flex-col md:flex-row-reverse gap-4 md:grid-cols-3  w-full flex-1 justify-between items-start text-white">
-        <div className="block w-full md:w-1/3">
+      <div className="flex flex-col md:flex-row lg:flex-row-reverse gap-4 w-full flex-1 justify-between items-start text-white">
+        <div className="block w-full md:w-1/3 lg:w-1/4">
           <h3 className="text-base font-medium leading-5 mb-4">
             Download our mobile app
           </h3>
@@ -39,7 +39,7 @@ const Footer = () => {
             </button>
           </div>
         </div>
-        <div className="flex flex-col gap-4 mt-4 flex-1 md:flex-row justify-between items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 md:mt-0 md:ml-4 flex-1 lg:grid-cols-3 justify-between items-start">
           {footerLinks.map((link) => (
             <div key={link.title}>
               <h3 className="font-semibold text-base leading-5">
@@ -57,7 +57,6 @@ const Footer = () => {
             </div>
           ))}
         </div>
-
         <div className="mb-4">
           <Image
             src="/images/Humushop-logo.png"
