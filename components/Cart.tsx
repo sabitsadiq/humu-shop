@@ -1,3 +1,4 @@
+"use client";
 import { useGlobalContext } from "@/app/context";
 import React, { useContext } from "react";
 import Card from "./Card";
