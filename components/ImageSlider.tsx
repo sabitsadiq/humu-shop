@@ -34,8 +34,15 @@ const ImageSlider = ({ images }: any) => {
             ))}
           </div>
           <div className="flex flex-col justify-center items-center gap-5 mr-5">
-            <PiCaretUpBold onClick={previousImage} />
-            <PiCaretDownBold onClick={nextImage} />
+            <span className="flex items-center h-8 w-8 rounded-full hover:bg-[#000000]/80">
+              <PiCaretUpBold
+                onClick={previousImage}
+                className="w-1/2 mx-auto"
+              />
+            </span>
+            <span className="flex items-center h-8 w-8 rounded-full hover:bg-[#000000]/80">
+              <PiCaretDownBold onClick={nextImage} className="w-1/2 mx-auto" />
+            </span>
           </div>
         </div>
         <div className="flex w-96  mx-auto">
