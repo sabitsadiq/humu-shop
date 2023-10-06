@@ -33,7 +33,7 @@ const Page: FC<pageProps> = ({ params }) => {
   // console.log(arr);
   return (
     <MainLayout>
-      <div className="px-4 lg:px-32 grid grid-cols-1 md:grid-cols-2">
+      <div className="px-4 lg:px-32 mt-4 gap-4 grid grid-cols-1 md:grid-cols-2">
         <ImageSlider images={[clickedCard]} />
         <div>
           <h1 className="text-[#1B0C2E] font-semibold text-2x leading-6">

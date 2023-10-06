@@ -82,11 +82,13 @@ const Cart = () => {
                 </span>
               </div>
 
-              <div
-                className="flex justify-center w-full bg-[#0D1A4A] py-2 rounded-md text-white hover:text-[#000000]/80 font-base text-xl leading-7 cursor-pointer"
-                onClick={() => handleOrder(item)}
-              >
-                Buy
+              <div className="flex justify-center w-ful">
+                <button
+                  className=" w-fit h-1/2 bg-[#0D1A4A] py-1 px-12 rounded-xl text-white hover:text-[#000000]/80 hover:bg-white font-base text-xl leading-7 cursor-pointer"
+                  onClick={() => handleOrder(item)}
+                >
+                  Buy
+                </button>
               </div>
             </div>
           ))}

@@ -25,85 +25,40 @@ const ImageSlider = ({ images }: any) => {
   return (
     <div className="image-slider">
       <div className="flex">
-        <div className="flex flex-col justify-between w-4/12">
-          <div className="flex flex-col gap-4">
-            {filteredImages.map((item: any, index: any) => (
-              <div key={index}>
-                <Image
-                  src={item.index}
-                  width={50}
-                  height={50}
-                  alt={images?.title}
-                />
+        <div className="flex flex-col justify-between gap-4 w-1/4 ">
+          <div className="flex flex-col gap-4 mr-5 ">
+            {filteredImages[0].map((item: any, index: any) => (
+              <div className="relative w-full h-24" key={index}>
+                <Image className="rounded-2xl" src={item} fill alt={item} />
               </div>
             ))}
-
-            {/* <div>
-              <Image
-                src={filteredImages[1]}
-                width={50}
-                height={50}
-                alt={images?.title}
-              />
-            </div>
-            <div>
-              <Image
-                src={filteredImages[2]}
-                width={50}
-                height={50}
-                alt={images?.title}
-              />
-            </div> */}
           </div>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col justify-center items-center gap-5 mr-5">
             <PiCaretUpBold onClick={previousImage} />
             <PiCaretDownBold onClick={nextImage} />
           </div>
         </div>
-        <div className="flex w-96">
+        <div className="flex w-96  mx-auto">
           {filteredImages[0].map((imageUrl: any, index: any) => (
             <div
-              className={`relative h-64 w-64 ${
+              className={`relative h-full w-full ${
                 index === currentIndex ? "block" : "hidden"
               }`}
               key={index}
             >
               <Image
-                className="w-full h-full"
+                className="w-full h-full rounded-2xl"
                 src={imageUrl}
                 fill
-                //   sizes="40"
+                sizes="40"
                 alt={images.title}
               />
             </div>
           ))}
         </div>
       </div>
-      {/* <button onClick={previousImage}>Previous</button>
-      <img src={images[currentImageIndex].img} alt="Product" />
-      <img src={images[currentImageIndex].subImg} alt="Product" />
-      <img src={images[currentImageIndex].subImg2} alt="Product" />
-      <button onClick={nextImage}>Next</button> */}
     </div>
   );
 };
-
-// const ProductPage = () => {
-//   // Assuming you have a product id
-//   const productId = 0; // Example product id
-//   const product = homeData.find((item) => item.id === productId);
-
-//   if (!product) {
-//     return <div>Product not found</div>;
-//   }
-
-//   return (
-//     <div>
-//       <h1>{product.title}</h1>
-//       <p>{product.desc}</p>
-//       <ImageSlider images={[product]} />
-//     </div>
-//   );
-// };
 
 export default ImageSlider;
