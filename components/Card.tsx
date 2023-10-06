@@ -4,6 +4,8 @@ import Image from "next/image";
 // import { homeData } from "@/constant/data";
 import { allCategoriesProps } from "@/types";
 import { useGlobalContext } from "@/app/context";
+import Link from "next/link";
+// import { useRouter } from "next/router";
 const Card = ({
   id,
   img,
@@ -15,6 +17,7 @@ const Card = ({
 }: allCategoriesProps) => {
   const { handleAddToCart, homeData } = useGlobalContext();
   // console.log("Card component rendered for item with ID:", id);
+  // const router = useRouter();
 
   return (
     <div key={id} className="rounded-3xl bg-[#A8A8A8]/10">
@@ -22,7 +25,9 @@ const Card = ({
         <Image className="w-full rounded-3xl " src={img} fill alt={title} />
       </div>
       <div className="p-2">
-        <h1 className="font-semibold text-base leading-6">{title}</h1>
+        <Link href={`/result/${id}`}>
+          <h1 className="font-semibold text-base leading-6">{title}</h1>
+        </Link>
         <h4 className="font-normal text-sm leading-4 text-[#A8A8A8] my-2">
           {desc}
         </h4>

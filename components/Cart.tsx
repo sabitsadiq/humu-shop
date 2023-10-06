@@ -7,7 +7,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CustomButton } from ".";
 const Cart = () => {
-  const { carts, handleOrder, orderItems } = useGlobalContext();
+  const {
+    carts,
+    handleOrder,
+    orderItems,
+    handleIncrement,
+    handleDecrement,
+    count,
+  } = useGlobalContext();
   return (
     <div className="">
       {carts.length === 0 ? (
@@ -25,7 +32,7 @@ const Cart = () => {
             <div className="hidden md:flex justify-center">Quantity</div>
             <div className="hidden md:flex justify-center">Shop</div>
           </div>
-          {carts.map((item) => (
+          {carts.map((item: any) => (
             <div
               key={item.id}
               className="grid grid-cols-1 md:grid-cols-5 mt-8 w-full gap-2"
@@ -58,13 +65,19 @@ const Cart = () => {
                 {item.desc}
               </div>
               <div className="flex gap-2 justify-center items-start">
-                <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
+                <span
+                  className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80"
+                  onClick={() => handleDecrement}
+                >
                   -
                 </span>
                 <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
-                  1
+                  {count[item.id]}
                 </span>
-                <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
+                <span
+                  className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80"
+                  onClick={() => handleIncrement(item)}
+                >
                   +
                 </span>
               </div>

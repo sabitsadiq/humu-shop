@@ -5,9 +5,10 @@ import { useGlobalContext } from "../context";
 import { allCategoriesProps } from "@/types";
 import Image from "next/image";
 import { BsPlus } from "react-icons/bs";
+import { RiDeleteBack2Line } from "react-icons/ri";
 
 const Page = () => {
-  const { orderItems } = useGlobalContext();
+  const { orderItems, removeFromItem } = useGlobalContext();
   return (
     <MainLayout>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-4 lg:px-32">
@@ -198,16 +199,23 @@ const Page = () => {
                 <div className="text-[#A8A8A8] font-normal text-base leading-4">
                   {orderItem.desc}
                 </div>
-                <div className="flex gap-2 justify-center items-start">
-                  <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
-                    -
-                  </span>
-                  <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
-                    1
-                  </span>
-                  <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
-                    +
-                  </span>
+                <div className="flex flex-col ">
+                  <div className="flex justify-end">
+                    <RiDeleteBack2Line
+                      onClick={() => removeFromItem(orderItem)}
+                    />
+                  </div>
+                  <div className="flex gap-2 justify-center items-start">
+                    <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
+                      -
+                    </span>
+                    <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
+                      1
+                    </span>
+                    <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
+                      +
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}

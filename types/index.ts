@@ -3,12 +3,16 @@ export interface customButtonProps {
   title: string;
   containerStyle?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
+  img?: any;
 }
 export interface allCategoriesProps {
-  id?: any;
-  img?: string | any;
+  id?: number | string;
+  img: string | any;
+  subImg?: string | any;
+  subImg2?: string | any;
   title?: string | any;
   desc?: string;
+  detailDesc?: string;
   formerCost?: string;
   currentCost?: string;
   btnText?: string;

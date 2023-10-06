@@ -2,6 +2,8 @@ export const homeData = [
   {
     id: 0,
     img: "/images/blender.jpg",
+    subImg: "/images/blender.jpg",
+    subImg2: "/images/blender.jpg",
     title: "blender",
     detailDesc:
       "Lorem ipsum dolor sit amet consectetur. Quam interdum nulla id et in nisl urna mattis.",
@@ -14,6 +16,8 @@ export const homeData = [
   {
     id: 1,
     img: "/images/fridge.jpg",
+    subImg: "/images/washing-machine.jpg",
+    subImg2: "/images/blender.jpg",
     title: "fridge",
     detailDesc:
       "Lorem ipsum dolor sit amet consectetur. Quam interdum nulla id et in nisl urna mattis.",
@@ -26,6 +30,8 @@ export const homeData = [
   {
     id: 2,
     img: "/images/washing-machine.jpg",
+    subImg: "/images/fridge.jpg",
+    subImg2: "/images/blender.jpg",
     title: "washing-machine",
     category: "Health and beauty",
     detailDesc:
@@ -39,6 +45,8 @@ export const homeData = [
   {
     id: 3,
     img: "/images/bed.jpg",
+    subImg: "/images/washing-machine.jpg",
+    subImg2: "/images/fridge.jpg",
     title: "bed",
     detailDesc:
       "Lorem ipsum dolor sit amet consectetur. Quam interdum nulla id et in nisl urna mattis.",
@@ -51,6 +59,8 @@ export const homeData = [
   {
     id: 4,
     img: "/images/computer-accessories.jpg",
+    subImg: "/images/washing-machine.jpg",
+    subImg2: "/images/blender.jpg",
     title: "Fenty beauty lip care",
     category: "Phone and tablets",
     detailDesc:
@@ -64,6 +74,8 @@ export const homeData = [
   {
     id: 5,
     img: "/images/shoes.jpg",
+    subImg: "/images/washing-machine.jpg",
+    subImg2: "/images/blender.jpg",
     title: "Fenty beauty lip care",
     category: "Phone and tablets",
     detailDesc:
@@ -77,6 +89,8 @@ export const homeData = [
   {
     id: 6,
     img: "/images/fan.jpg",
+    subImg: "/images/shoes.jpg",
+    subImg2: "/images/blender.jpg",
     title: "Fenty beauty lip care",
     category: "Health and beauty",
     detailDesc:

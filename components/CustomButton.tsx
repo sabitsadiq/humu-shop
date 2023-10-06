@@ -6,6 +6,7 @@ const CustomButton = ({
   title,
   handleClick,
   containerStyle,
+  img,
 }: customButtonProps) => {
   return (
     <button
@@ -14,7 +15,10 @@ const CustomButton = ({
       type={"button"}
       onClick={() => {}}
     >
-      <span className={`flex-1`}>{title}</span>
+      <span className={`flex-1 flex items-center gap-4`}>
+        {img}
+        {title}
+      </span>
     </button>
   );
 };
