@@ -20,8 +20,8 @@ const SimilarItemSlider = () => {
         modules={[Virtual]}
         spaceBetween={20}
         slidesPerView={4}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => "slide change"}
+        onSwiper={(swiper) => swiper}
         virtual
         autoplay={{
           delay: 2000,
