@@ -15,7 +15,7 @@ const CustomButton = ({
       type={"button"}
       onClick={() => {}}
     >
-      <span className={`flex-1 flex items-center gap-4`}>
+      <span className={`flex-1 flex items-center gap-2`}>
         {img}
         {title}
       </span>

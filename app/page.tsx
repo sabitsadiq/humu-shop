@@ -37,7 +37,7 @@ export default function Home() {
   const result = FilteredData(homeData, selectedCategories);
   return (
     <main className="">
-      <Hero result={result} />
+      <Hero />
     </main>
   );
 }

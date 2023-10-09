@@ -8,6 +8,7 @@ import {
   createContext,
   useContext,
   useState,
+  InputHTMLAttributes,
 } from "react";
 
 interface contextProps {
@@ -27,7 +28,9 @@ interface contextProps {
   handleOrder: (item: allCategoriesProps) => void;
   removeFromItem: (item: allCategoriesProps) => void;
   handleIncrement: (item: allCategoriesProps) => void;
-  handleDecrement: () => void;
+  handleDecrement: (event: ChangeEvent<HTMLInputElement>) => void;
+  handlePriceChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  selectedCategories: any;
   count: { [key: string]: number };
 }
 // let filteredProducts = homeData;
@@ -58,6 +61,8 @@ const appDefaultValue: contextProps = {
   removeFromItem: () => {},
   handleIncrement: () => {},
   handleDecrement: () => {},
+  handlePriceChange: (event: ChangeEvent<HTMLInputElement>) => {},
+  selectedCategories: [],
 };
 export const GlobalContext = createContext<contextProps>(appDefaultValue);
 
@@ -67,7 +72,8 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
   const [orderItems, setOrderItems] = useState<any>([]);
 
   const [openFilter, setOpenFilter] = useState<boolean>(false);
-  const [selectedCategories, setSelectedCategories] = useState<any>(null);
+  const [selectedCategories, setSelectedCategories] = useState<any>(0);
+  const [priceFilter, setPriceFilter] = useState(0);
   const [count, setCount] = useState<{ [key: number]: number }>({});
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -79,20 +85,38 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
     setOpenFilter(false);
   };
 
+  // FILTER BY PRICES
+  const handlePriceChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedCategories(parseInt(event.target.value, 10));
+  };
+
   const handleReset = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedCategories(null); // Clear the filter by setting selectedCategories to null
+    setSelectedCategories(""); // Clear the filter by setting selectedCategories to null
   };
   const FilteredData = (homeData: any, selected: any) => {
     let filteredProducts = homeData.slice();
     if (selected) {
       filteredProducts = filteredProducts.filter(
-        ({ category, color }: allCategoriesProps) => {
-          return category === selected || color === selected;
+        ({ category, color, currentCost }: allCategoriesProps) => {
+          return (
+            category === selected ||
+            color === selected ||
+            currentCost === selected
+          );
         }
       );
     }
+    // if (priceFilter) {
+    //   filteredProducts = filteredProducts.filter(({ currentCost }: any) => {
+    //     console.log();
+    //     return currentCost <= priceFilter;
+    //   });
+    //   return filteredProducts;
+    // }
+    console.log(filteredProducts);
     return filteredProducts;
   };
+  // console.log(selected)
 
   const result = FilteredData(homeData, selectedCategories);
 
@@ -182,7 +206,10 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
     removeFromItem,
     handleIncrement,
     handleDecrement,
+    selectedCategories,
+    handlePriceChange,
     count,
+    priceFilter,
   };
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>

@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { PiCaretUpLight } from "react-icons/pi";
 import Input from "./Input";
+import { useGlobalContext } from "@/app/context";
 
-const FilterByCategories = ({ handleChange }: any) => {
-  console.log(handleChange);
+const FilterByCategories = ({ handleChange, value }: any) => {
   const [openCategories, setOpenCategories] = useState<Boolean>(false);
   const [openPrices, setPrices] = useState<Boolean>(false);
   const [openBrand, setBrand] = useState<Boolean>(false);
@@ -17,6 +17,7 @@ const FilterByCategories = ({ handleChange }: any) => {
   const brandHandler = () => {
     setBrand((prev) => !prev);
   };
+  const { selectedCategories, handlePriceChange } = useGlobalContext();
   return (
     <div className="flex flex-col">
       <div className="">
@@ -69,7 +70,16 @@ const FilterByCategories = ({ handleChange }: any) => {
               : "h-32 ease-linear duration-300"
           }`}
         >
-          <Input />
+          <input
+            type="range"
+            min={10000}
+            max={100000} // Set the maximum price according to your requirement
+            step={5000} // Set the step size for the range input
+            value={selectedCategories}
+            onChange={handlePriceChange}
+            className="accent-[#1B0C2E]"
+          />
+          {/* <span>{selectedCategories}</span> */}
         </div>
       </div>
       <div className="">

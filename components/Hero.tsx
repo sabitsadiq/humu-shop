@@ -12,12 +12,10 @@ import Card from "@/components/Card";
 
 import { allCategoriesProps } from "@/types";
 import MainLayout from "@/app/mainLayout/Layout";
-import { useRouter } from "next/router";
 
-const Hero = ({ result }: any) => {
-  // const router = useRouter();
+const Hero = () => {
   const {
-    // result,
+    result,
     openFilter,
     setOpenFilter,
     handleChange,

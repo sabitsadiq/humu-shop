@@ -2,7 +2,10 @@
 import { useGlobalContext } from "@/app/context";
 import MainLayout from "@/app/mainLayout/Layout";
 import { CustomButton } from "@/components";
+import Card from "@/components/Card";
 import ImageSlider from "@/components/ImageSlider";
+import SimilarItemSlider from "@/components/SimilarItemSlider";
+import { allCategoriesProps } from "@/types";
 import Image from "next/image";
 import React, { FC } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -13,24 +16,13 @@ import { PiCaretDownBold, PiCaretUpBold } from "react-icons/pi";
 interface pageProps {
   params: {
     id: number | string;
-    // img: string;
-    // title?: string | any;
-    // desc?: string;
-    // formerCost?: string;
-    // currentCost?: string;
-    // btnText?: string;
-    // color?: string | any;
-    // onAddToCart?: any;
-    // category?: string;
   };
 }
 
 const Page: FC<pageProps> = ({ params }) => {
   const { homeData } = useGlobalContext();
   const clickedCard = homeData.find((item) => item.id === Number(params.id));
-  // let arr = [];
-  // arr.push(clickedCard);
-  // console.log(arr);
+
   return (
     <MainLayout>
       <div className="px-4 lg:px-32 mt-4 gap-4 grid grid-cols-1 md:grid-cols-2">
@@ -111,6 +103,14 @@ const Page: FC<pageProps> = ({ params }) => {
               containerStyle=" flex items-center bg-[#0D1A4A] text-white px-8 py-3 text-lg font-semibold leading-7 md:rounded-3xl rounded-xl"
             />
           </div>
+        </div>
+      </div>
+      <div className="px-4 lg:px-32 my-20">
+        <h1 className="font-bold text-3xl leading-8">
+          Similar items you might like
+        </h1>
+        <div className="">
+          <SimilarItemSlider />
         </div>
       </div>
     </MainLayout>

@@ -1,10 +1,16 @@
-import { MouseEventHandler, ReactNode } from "react";
+import {
+  DetailedHTMLProps,
+  InputHTMLAttributes,
+  MouseEventHandler,
+  ReactNode,
+} from "react";
 export interface customButtonProps {
   title: string;
   containerStyle?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
   img?: any;
 }
+
 export interface allCategoriesProps {
   id?: number | string;
   img: string | any;
@@ -14,7 +20,7 @@ export interface allCategoriesProps {
   desc?: string;
   detailDesc?: string;
   formerCost?: string;
-  currentCost?: string;
+  currentCost?: string | number;
   btnText?: string;
   color?: string | any;
   onAddToCart?: any;
