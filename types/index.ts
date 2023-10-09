@@ -12,7 +12,7 @@ export interface customButtonProps {
 }
 
 export interface allCategoriesProps {
-  id?: number | string;
+  id?: number | string | any;
   img: string | any;
   subImg?: string | any;
   subImg2?: string | any;
