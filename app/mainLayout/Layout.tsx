@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Footer } from "@/components";
 import MainMobileNav from "./MainMobileNav";
 import Navbar from "../../components/Navbar";
-import SideNav from "./SideNav";
+// import SideNav from "./SideNav";
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -38,9 +38,9 @@ const MainLayout = ({ children }: LayoutProps) => {
                 : "hidden"
             }`}
           >
-            <SideNav openSidebar={openSideBar} />
+            {/* <SideNav openSidebar={openSideBar} /> */}
           </div>
-          <div className="w-full mx-4 md:w-3/4">{children}</div>
+          {/* <div className="w-full mx-4 md:w-3/4">{children}</div> */}
         </main>
         <div className="w-full pt-14 md:pt-40 ">{children}</div>
         <div className="w-full mt-10">
