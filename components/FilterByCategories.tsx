@@ -72,7 +72,8 @@ const FilterByCategories = ({ handleChange, value }: any) => {
         >
           <input
             type="range"
-            min={10000}
+            name="selectedCategories"
+            min={0}
             max={100000} // Set the maximum price according to your requirement
             step={5000} // Set the step size for the range input
             value={selectedCategories}
