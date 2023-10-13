@@ -26,6 +26,7 @@ interface contextProps {
   homeData: allCategoriesProps[];
   result: allCategoriesProps[];
   handleAddToCart: (id: allCategoriesProps) => void;
+  handleRemoveFromCart: (id: allCategoriesProps) => void;
   handleOrder: (item: allCategoriesProps) => void;
   removeFromItem: (item: allCategoriesProps) => void;
   handleIncrement: (item: allCategoriesProps) => void;
@@ -57,6 +58,7 @@ const appDefaultValue: contextProps = {
   count: {},
   orderItems: [],
   handleAddToCart: () => {},
+  handleRemoveFromCart: () => {},
   homeData: [],
   handleOrder: () => {},
   removeFromItem: () => {},
@@ -74,7 +76,7 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
 
   const [openFilter, setOpenFilter] = useState<boolean>(false);
   const [selectedCategories, setSelectedCategories] = useState<any>(0);
-  const [count, setCount] = useState<{ [key: number]: number }>({});
+  const [count, setCount] = useState<{ [key: number]: number }>([]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedCategories(event.target.value);
@@ -87,7 +89,7 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
 
   // FILTER BY PRICES
   const handlePriceChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedCategories(parseInt(event.target.value, 10));
+    console.log(setSelectedCategories(parseInt(event.target.value, 10)));
   };
   const handleReset = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedCategories(""); // Clear the filter by setting selectedCategories to null
@@ -117,9 +119,12 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
     const productExit = carts.find(
       (item: allCategoriesProps) => item.id === homeData.id
     );
+    console.log(carts.id);
+    console.log(typeof homeData.id);
+    console.log(productExit);
     if (productExit) {
       setCarts(
-        carts.map((item: any) =>
+        carts.map((item: allCategoriesProps) =>
           item.id === homeData.id
             ? {
                 ...productExit,
@@ -132,6 +137,7 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
       setCarts([...carts, { ...homeData, quantity: 1 }]);
     }
   };
+  // console.log(typeof(quantity))
 
   const handleRemoveFromCart = (homeData: allCategoriesProps) => {
     const productExit = carts.find((item: any) => item.id === homeData.id);
@@ -141,7 +147,7 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
       setCarts(
         carts.map((item: any) =>
           item.id === homeData.id
-            ? { ...productExit, quantity: productExit.quantity + 1 }
+            ? { ...productExit, quantity: productExit.quantity - 1 }
             : item
         )
       );
@@ -162,10 +168,15 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
   };
 
   const handleIncrement = (item: any) => {
-    setCount((prevCounts: any) => ({
-      ...prevCounts,
-      [item]: prevCounts[item] + 1,
-    }));
+    console.log(typeof item.id);
+    if (item.id !== 1) {
+    }
+    console.log(
+      setCount((prevCounts: any) => ({
+        ...prevCounts,
+        [item]: prevCounts[item] + 1,
+      }))
+    );
   };
   // console.log(prevCounts)
 
@@ -200,6 +211,7 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
     carts,
     orderItems,
     handleAddToCart,
+    handleRemoveFromCart,
     homeData,
     handleOrder,
     removeFromItem,

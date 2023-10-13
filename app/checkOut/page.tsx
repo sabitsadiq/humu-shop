@@ -8,7 +8,8 @@ import { BsPlus } from "react-icons/bs";
 import { RiDeleteBack2Line } from "react-icons/ri";
 
 const Page = () => {
-  const { orderItems, removeFromItem } = useGlobalContext();
+  const { orderItems, handleAddToCart, handleRemoveFromCart } =
+    useGlobalContext();
   return (
     <MainLayout>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-4 lg:px-32">
@@ -170,8 +171,8 @@ const Page = () => {
             Order summary
           </h1>
           <div className="rounded-2xl shadow-xl  md:mx-4 px-4 py-5 h-full mt-4">
-            {orderItems.map((orderItem: allCategoriesProps) => (
-              <div key={orderItem.id} className="flex  gap-4 my-4 w-full">
+            {orderItems.map((item: any) => (
+              <div key={item.id} className="flex  gap-4 my-4 w-full">
                 <div className="flex gap-4">
                   <div>
                     <input type="radio" />
@@ -179,40 +180,44 @@ const Page = () => {
                   <div className="relative w-32 h-24">
                     <Image
                       className="w-full rounded-xl h-3/5"
-                      src={orderItem.img}
+                      src={item.img}
                       fill
-                      alt={orderItem.title}
+                      alt={item.title}
                     />
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 items-start">
                   <h1 className="font-semibold text-base leading-6 text-[#1B0C2E]">
-                    {orderItem.title}
+                    {item.title}
                   </h1>
                   <h1 className="font-normal text-base leading-5 text-[#000000]/50">
-                    {orderItem.category}
+                    {item.category}
                   </h1>
                   <span className="font-semibold text-base leading-3">
-                    {orderItem.currentCost}
+                    {`₦${
+                      Number(item.currentCost.split(" ")[1].replace(",", "")) *
+                      Number(item.quantity)
+                    }`}
                   </span>
                 </div>
                 <div className="text-[#A8A8A8] font-normal text-base leading-4">
-                  {orderItem.desc}
+                  {item.desc}
                 </div>
                 <div className="flex flex-col ">
                   <div className="flex justify-end">
-                    <RiDeleteBack2Line
-                      onClick={() => removeFromItem(orderItem)}
-                    />
+                    <RiDeleteBack2Line onClick={() => handleRemoveFromCart} />
                   </div>
                   <div className="flex gap-2 justify-center items-start">
                     <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
                       -
                     </span>
                     <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
-                      1
+                      {item.quantity}
                     </span>
-                    <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
+                    <span
+                      className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80"
+                      onClick={() => handleAddToCart}
+                    >
                       +
                     </span>
                   </div>

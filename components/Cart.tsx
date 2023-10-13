@@ -1,6 +1,6 @@
 "use client";
 import { useGlobalContext } from "@/app/context";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Card from "./Card";
 import { allCategoriesProps } from "@/types";
 import Image from "next/image";
@@ -11,10 +11,39 @@ const Cart = () => {
     carts,
     handleOrder,
     orderItems,
+    handleAddToCart,
+    handleRemoveFromCart,
     handleIncrement,
     handleDecrement,
     count,
   } = useGlobalContext();
+  console.log(carts);
+  const [selectedItems, setSelectedItems] = useState<any | boolean>([]);
+  const checkHandler = (e: any) => {
+    let isSelected = e.target.checked;
+    let value = parseInt(e.target.value);
+    console.log(value);
+    if (isSelected) {
+      setSelectedItems([...selectedItems, value]);
+      console.log(selectedItems);
+    } else {
+      setSelectedItems((prevData: []) => {
+        return prevData.filter((id) => id !== value);
+      });
+      console.log(selectedItems);
+    }
+  };
+
+  const selectAllhandler = () => {
+    if (carts.length === selectedItems.length) {
+      setSelectedItems([]);
+    } else {
+      const selectedInput = carts.map((item) => {
+        return item.id;
+      });
+      setSelectedItems(selectedInput);
+    }
+  };
   return (
     <div className="">
       {carts.length === 0 ? (
@@ -23,8 +52,17 @@ const Cart = () => {
         <div className="">
           <div className="grid grid-cols-1 md:grid-cols-5 justify-between items-center w-full flex-1 font-normal text-xl leading-7 text-[#000000] text-opacity-90">
             <div>
-              <input type="radio" />
-              <label className="ml-2">Select all items</label>
+              <input
+                id="selectAll"
+                type="checkbox"
+                className="accent-[#1B0C2E]"
+                onChange={selectAllhandler}
+              />
+              <label htmlFor="selectAll" className="ml-2">
+                {carts.length === selectedItems.length
+                  ? "Unselect items"
+                  : "Select all items"}
+              </label>
             </div>
 
             <div className="hidden md:flex justify-center">item</div>
@@ -39,7 +77,14 @@ const Cart = () => {
             >
               <div className="md:flex  gap-2">
                 <div>
-                  <input type="radio" />
+                  <input
+                    type="checkbox"
+                    onChange={checkHandler}
+                    checked={selectedItems.includes(item.id)}
+                    value={item.id}
+                    id={item.id}
+                    className="accent-[#1B0C2E] w-8"
+                  />
                 </div>
                 <div className="relative w-full h-56 md:w-44 md:h-32">
                   <Image
@@ -58,7 +103,11 @@ const Cart = () => {
                   {item.category}
                 </h1>
                 <span className="font-semibold text-base leading-3">
-                  {item.currentCost}
+                  {/* {item.currentCost} */}
+                  {`₦${
+                    Number(item.currentCost.split(" ")[1].replace(",", "")) *
+                    Number(item.quantity)
+                  }`}
                 </span>
               </div>
               <div className="text-[#A8A8A8] font-normal text-base leading-4">
@@ -67,16 +116,16 @@ const Cart = () => {
               <div className="flex gap-2 justify-center items-start">
                 <span
                   className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80"
-                  onClick={() => handleDecrement}
+                  onClick={() => handleRemoveFromCart(item)}
                 >
                   -
                 </span>
                 <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
-                  {count[item.id]}
+                  {item.quantity}
                 </span>
                 <span
                   className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80"
-                  onClick={() => handleIncrement(item)}
+                  onClick={() => handleAddToCart(item)}
                 >
                   +
                 </span>

@@ -14,9 +14,12 @@ const Input = ({ handleChange, value, title, name, category }: any) => {
           value={value}
           name={name}
         />
-        <p className="font-medium text-sm leading-6 text-[#1B0C2E]">
+        <label
+          htmlFor={value}
+          className="font-medium text-sm leading-6 text-[#1B0C2E]"
+        >
           {category}
-        </p>
+        </label>
       </div>
     </>
   );
