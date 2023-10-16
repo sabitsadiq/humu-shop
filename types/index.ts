@@ -25,6 +25,7 @@ export interface allCategoriesProps {
   color?: string | any;
   onAddToCart?: any;
   category?: string;
+  quantity?: string;
 }
 export interface ourShopCategoriesProps {
   id: number;

@@ -30,7 +30,7 @@ interface contextProps {
   handleOrder: (item: allCategoriesProps) => void;
   removeFromItem: (item: allCategoriesProps) => void;
   handleIncrement: (item: allCategoriesProps) => void;
-  handleDecrement: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleDecrement: (item: allCategoriesProps) => void;
   handlePriceChange: (event: ChangeEvent<HTMLInputElement>) => void;
   selectedCategories: any;
   count: { [key: string]: number };
@@ -119,9 +119,9 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
     const productExit = carts.find(
       (item: allCategoriesProps) => item.id === homeData.id
     );
-    console.log(carts.id);
-    console.log(typeof homeData.id);
-    console.log(productExit);
+    // console.log(carts.id);
+    // console.log(typeof homeData.id);
+    // console.log(productExit);
     if (productExit) {
       setCarts(
         carts.map((item: allCategoriesProps) =>
@@ -156,35 +156,58 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
 
   const handleOrder = (item: allCategoriesProps) => {
     const updatedCart = carts.filter((cart: any) => cart !== item);
-    console.log(updatedCart);
     setCarts(updatedCart);
     setOrderItems([...orderItems, item]);
   };
 
   const removeFromItem = (item: allCategoriesProps) => {
-    const removeCart = orderItems.filter((cart: any) => cart != item);
+    const removeCart = orderItems.filter((cart: any) => cart.id !== item.id);
     setOrderItems(removeCart);
     // setOrderItems([]);
   };
-
-  const handleIncrement = (item: any) => {
-    console.log(typeof item.id);
-    if (item.id !== 1) {
-    }
-    console.log(
-      setCount((prevCounts: any) => ({
-        ...prevCounts,
-        [item]: prevCounts[item] + 1,
-      }))
+  const handleIncrement = (homeData: allCategoriesProps) => {
+    const productExit = orderItems.find(
+      (orderItem: allCategoriesProps) => orderItem.id === homeData.id
     );
+    if (productExit) {
+      setOrderItems(
+        orderItems.map((orderItem: allCategoriesProps) =>
+          orderItem.id === homeData.id
+            ? {
+                ...productExit,
+                quantity: productExit.quantity + 1,
+              }
+            : orderItem
+        )
+      );
+    }
   };
+  const handleDecrement = (homeData: allCategoriesProps) => {
+    const productExit = orderItems.find((item: any) => item.id === homeData.id);
+    if (productExit.quantity === 1) {
+      setOrderItems(orderItems.filter((item: any) => item.id !== homeData.id));
+    } else {
+      setOrderItems(
+        orderItems.map((item: any) =>
+          item.id === homeData.id
+            ? { ...productExit, quantity: productExit.quantity - 1 }
+            : item
+        )
+      );
+    }
+  };
+
+  // const handleIncrement = (item: any) => {
+  //   console.log(typeof item.id);
+  //   if (item.id !== 1) {
+  //   }
+  //   setOrderItems((prevCounts: any) => ({
+  //     ...prevCounts,
+  //     [item]: prevCounts[item] + 1,
+  //   }));
+  // };
   // console.log(prevCounts)
 
-  const handleDecrement = () => {
-    // if (count > 1) {
-    //   setCount(count - 1);
-    // }
-  };
   const handleIncre = (item: allCategoriesProps) => {
     const updatedCart = carts.map((cart: any) => {
       if (cart === item) {

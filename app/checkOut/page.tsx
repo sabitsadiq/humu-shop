@@ -8,8 +8,13 @@ import { BsPlus } from "react-icons/bs";
 import { RiDeleteBack2Line } from "react-icons/ri";
 
 const Page = () => {
-  const { orderItems, handleAddToCart, handleRemoveFromCart } =
-    useGlobalContext();
+  const {
+    orderItems,
+    handleAddToCart,
+    handleIncrement,
+    handleDecrement,
+    removeFromItem,
+  } = useGlobalContext();
   return (
     <MainLayout>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-4 lg:px-32">
@@ -198,6 +203,7 @@ const Page = () => {
                       Number(item.currentCost.split(" ")[1].replace(",", "")) *
                       Number(item.quantity)
                     }`}
+                    {/* {item.quantity} */}
                   </span>
                 </div>
                 <div className="text-[#A8A8A8] font-normal text-base leading-4">
@@ -205,10 +211,13 @@ const Page = () => {
                 </div>
                 <div className="flex flex-col ">
                   <div className="flex justify-end">
-                    <RiDeleteBack2Line onClick={() => handleRemoveFromCart} />
+                    <RiDeleteBack2Line onClick={() => removeFromItem(item)} />
                   </div>
                   <div className="flex gap-2 justify-center items-start">
-                    <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
+                    <span
+                      className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80"
+                      onClick={() => handleDecrement(item)}
+                    >
                       -
                     </span>
                     <span className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80">
@@ -216,7 +225,7 @@ const Page = () => {
                     </span>
                     <span
                       className="flex items-center font-semibold cursor-pointer text-base leading-6 text-[#000000]/80"
-                      onClick={() => handleAddToCart}
+                      onClick={() => handleIncrement(item)}
                     >
                       +
                     </span>

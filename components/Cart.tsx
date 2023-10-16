@@ -25,7 +25,7 @@ const Cart = () => {
     console.log(value);
     if (isSelected) {
       setSelectedItems([...selectedItems, value]);
-      console.log(selectedItems);
+      console.log(setSelectedItems);
     } else {
       setSelectedItems((prevData: []) => {
         return prevData.filter((id) => id !== value);
