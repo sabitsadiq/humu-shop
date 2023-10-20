@@ -15,6 +15,13 @@ const Page = () => {
     handleDecrement,
     removeFromItem,
   } = useGlobalContext();
+  // const totalPrice = orderItems.reduce(
+  //   (item: any) =>
+  //     item.currentCost + Number(item.currentCost) * Number(item.quantity),
+  //   0
+  // );
+  // console.log(totalPrice);
+  // console.log(orderItems);
   return (
     <MainLayout>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-4 lg:px-32">
@@ -241,7 +248,7 @@ const Page = () => {
                   </p>
                 </div>
                 <h4 className="font-bold text-lg leading-5 text-[#000000]/80">
-                  $35
+                  {/* {totalPrice} */}$35
                 </h4>
               </div>
               <div className="flex items-center my-2 justify-between">

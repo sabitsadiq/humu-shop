@@ -6,6 +6,7 @@ import { allCategoriesProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { CustomButton } from ".";
+import Empty from "./Empty";
 const Cart = () => {
   const {
     carts,
@@ -47,7 +48,12 @@ const Cart = () => {
   return (
     <div className="">
       {carts.length === 0 ? (
-        <div>No items</div>
+        <div>
+          <h1 className="flex items-center justify-center font-bold text-xl leading-5">
+            EMPTY CART
+          </h1>
+          <Empty />
+        </div>
       ) : (
         <div className="">
           <div className="grid grid-cols-1 md:grid-cols-5 justify-between items-center w-full flex-1 font-normal text-xl leading-7 text-[#000000] text-opacity-90">
@@ -130,7 +136,6 @@ const Cart = () => {
                   +
                 </span>
               </div>
-
               <div className="flex justify-center w-ful">
                 <button
                   className=" w-fit h-1/2 bg-[#0D1A4A] py-1 px-12 rounded-xl text-white hover:text-[#000000]/80 hover:bg-white font-base text-xl leading-7 cursor-pointer"
@@ -143,7 +148,10 @@ const Cart = () => {
           ))}
         </div>
       )}
-      <Link href="/checkOut">
+      <Link
+        href="/checkOut"
+        className={`${carts.length === 0 ? "hidden" : "block"}`}
+      >
         <button>checkout</button>
       </Link>
     </div>

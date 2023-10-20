@@ -21,8 +21,11 @@ const Hero = () => {
     handleChange,
     handleClick,
     handleReset,
+    selectedCategories,
+    setSelectedCategories,
   } = useGlobalContext();
   const [openSort, setOpenSort] = useState<boolean>(false);
+  console.log(selectedCategories);
   return (
     <MainLayout>
       <div className="w-full">
@@ -93,7 +96,7 @@ const Hero = () => {
               </div>
               <div className="flex items-center justify-between w-full lg:w-2/3">
                 <h1 className="font-extrabold lg:text-4xl leading-9 md:ml-4">
-                  All categories
+                  {selectedCategories || "All Categories"}
                 </h1>
                 <button className="flex xl:w-1/5 border gap-2 xl:gap-0  rounded-xl px-2  justify-between items-center">
                   <span className="text-[#1B0C2E] font-medium text-base leading-6">

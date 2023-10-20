@@ -22,7 +22,7 @@ interface contextProps {
   openFilter: boolean;
   setOpenFilter: any;
   carts: allCategoriesProps[];
-  orderItems: allCategoriesProps[];
+  orderItems: allCategoriesProps[] | any;
   homeData: allCategoriesProps[];
   result: allCategoriesProps[];
   handleAddToCart: (id: allCategoriesProps) => void;
@@ -33,6 +33,7 @@ interface contextProps {
   handleDecrement: (item: allCategoriesProps) => void;
   handlePriceChange: (event: ChangeEvent<HTMLInputElement>) => void;
   selectedCategories: any;
+  setSelectedCategories: any;
   count: { [key: string]: number };
 }
 // let filteredProducts = homeData;
@@ -66,6 +67,7 @@ const appDefaultValue: contextProps = {
   handleDecrement: () => {},
   handlePriceChange: (event: ChangeEvent<HTMLInputElement>) => {},
   selectedCategories: [],
+  setSelectedCategories: true || false,
 };
 export const GlobalContext = createContext<contextProps>(appDefaultValue);
 
@@ -208,20 +210,6 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
   // };
   // console.log(prevCounts)
 
-  const handleIncre = (item: allCategoriesProps) => {
-    const updatedCart = carts.map((cart: any) => {
-      if (cart === item) {
-        return {
-          ...cart,
-          quantity: cart.quantity + 1,
-          price: cart.price * (cart.quantity + 1),
-        };
-      }
-      return cart;
-    });
-    setCarts(updatedCart);
-  };
-
   const value = {
     cartItem,
     result,
@@ -241,6 +229,7 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
     handleIncrement,
     handleDecrement,
     selectedCategories,
+    setSelectedCategories,
     handlePriceChange,
     count,
   };
