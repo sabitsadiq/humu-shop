@@ -71,8 +71,8 @@ const Cart = () => {
               </label>
             </div>
 
-            <div className="hidden md:flex justify-center">item</div>
-            <div className="hidden md:flex justify-center">Description</div>
+            <div className="hidden md:flex justify-cent">item</div>
+            <div className="hidden md:flex justify-cent">Description</div>
             <div className="hidden md:flex justify-center">Quantity</div>
             <div className="hidden md:flex justify-center">Shop</div>
           </div>

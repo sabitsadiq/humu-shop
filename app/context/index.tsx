@@ -199,17 +199,6 @@ export const GlobalState = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  // const handleIncrement = (item: any) => {
-  //   console.log(typeof item.id);
-  //   if (item.id !== 1) {
-  //   }
-  //   setOrderItems((prevCounts: any) => ({
-  //     ...prevCounts,
-  //     [item]: prevCounts[item] + 1,
-  //   }));
-  // };
-  // console.log(prevCounts)
-
   const value = {
     cartItem,
     result,

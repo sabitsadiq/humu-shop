@@ -15,13 +15,14 @@ const Page = () => {
     handleDecrement,
     removeFromItem,
   } = useGlobalContext();
-  // const totalPrice = orderItems.reduce(
-  //   (item: any) =>
-  //     item.currentCost + Number(item.currentCost) * Number(item.quantity),
-  //   0
-  // );
-  // console.log(totalPrice);
-  // console.log(orderItems);
+  console.log(orderItems);
+  const totalPrice = orderItems.reduce((acc: any, item: any) => {
+    const cost = parseInt(item.currentCost.replace("₦", "").trim()); // Remove '₦' and convert to integer
+    const quantity = item.quantity;
+    return acc + cost * quantity; // Add the product of currentCost and quantity to the accumulator
+  }, 0);
+
+  console.log(`Total Price: ₦ ${totalPrice}`);
   return (
     <MainLayout>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-4 lg:px-32">
@@ -248,7 +249,7 @@ const Page = () => {
                   </p>
                 </div>
                 <h4 className="font-bold text-lg leading-5 text-[#000000]/80">
-                  {/* {totalPrice} */}$35
+                  {totalPrice}
                 </h4>
               </div>
               <div className="flex items-center my-2 justify-between">

@@ -13,9 +13,9 @@ const CustomButton = ({
       disabled={false}
       className={`${containerStyle}`}
       type={"button"}
-      onClick={() => {}}
+      onClick={() => { }}
     >
-      <span className={`flex-1 flex items-center gap-2`}>
+      <span className={`flex-1 flex justify-center items-center gap-2`}>
         {img}
         {title}
       </span>
